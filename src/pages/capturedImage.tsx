@@ -2,7 +2,7 @@ import { RootState, useAppSelector } from '@/redux/store';
 import React from 'react';
 import NavigationButton from './components/NavigationButton';
 
-function capturedImage() {
+function CapturedImage() {
   const selector = useAppSelector(
     (state: RootState) => state.image.imageString
   );
@@ -20,4 +20,4 @@ function capturedImage() {
   );
 }
 
-export default capturedImage;
+export default CapturedImage;

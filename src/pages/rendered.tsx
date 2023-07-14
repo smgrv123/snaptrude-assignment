@@ -13,7 +13,7 @@ import {
 import { Cubiod } from './components/CuboidModel';
 import { RootState, useAppSelector } from '@/redux/store';
 
-function rendered() {
+function Rendered() {
   const selector = useAppSelector(
     (state: RootState) => state.image.imageString
   );
@@ -65,4 +65,4 @@ function rendered() {
   );
 }
 
-export default rendered;
+export default Rendered;
