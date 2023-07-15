@@ -9,7 +9,7 @@ import {
   Scene,
   StandardMaterial,
 } from '@babylonjs/core';
-import { Cubiod } from './components/CuboidModel';
+import { Cubiod } from '../components/CuboidModel';
 import { RootState, useAppSelector } from '@/redux/store';
 
 function Rendered() {

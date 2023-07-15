@@ -7,8 +7,8 @@ import { toPng } from 'html-to-image';
 import { useAppDispatch } from '@/redux/store';
 import { setImageString } from '@/redux/imageSlice';
 
-import Geocoder from './components/GeoCoderSearch';
-import NavigationButton from './components/NavigationButton';
+import Geocoder from '../components/GeoCoderSearch';
+import NavigationButton from '../components/NavigationButton';
 
 function App() {
   const apiKey = process.env.NEXT_PUBLIC_MAPBOX_API_KEY;

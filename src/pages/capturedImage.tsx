@@ -1,6 +1,6 @@
 import { RootState, useAppSelector } from '@/redux/store';
 import React from 'react';
-import NavigationButton from './components/NavigationButton';
+import NavigationButton from '../components/NavigationButton';
 
 function CapturedImage() {
   const selector = useAppSelector(
@@ -15,7 +15,10 @@ function CapturedImage() {
         src={selector}
         alt=""
       />
-      <NavigationButton buttonText='Convert to 3D Model' hrefPathname='/rendered' />
+      <NavigationButton
+        buttonText="Convert to 3D Model"
+        hrefPathname="/rendered"
+      />
     </div>
   );
 }
