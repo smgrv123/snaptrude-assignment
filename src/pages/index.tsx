@@ -36,6 +36,7 @@ function App() {
   }, []);
 
   const handleSnapshot = async () => {
+    // @ts-ignore
     const imageString = await toPng(mapRef.current.getCanvas());
     dispatch(setImageString(imageString));
   };

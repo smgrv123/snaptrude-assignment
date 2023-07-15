@@ -1,7 +1,15 @@
 import { useEffect, useRef } from 'react';
 import { Engine, Scene } from '@babylonjs/core';
 
-const Cubiod = ({ antialias, onSceneReady, id}) => {
+const Cubiod = ({
+  antialias,
+  onSceneReady,
+  id,
+}: {
+  antialias: boolean;
+  onSceneReady: (scene: Scene) => void;
+  id: string;
+}) => {
   const reactCanvas = useRef(null);
   useEffect(() => {
     const canvas = reactCanvas.current;

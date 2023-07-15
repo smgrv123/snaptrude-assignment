@@ -2,7 +2,6 @@ import React from 'react';
 import {
   ArcRotateCamera,
   Vector3,
-  Tools,
   Texture,
   HemisphericLight,
   MeshBuilder,
@@ -54,15 +53,7 @@ function Rendered() {
     box.position.z = 0;
   };
 
-  console.log('yes reachedd');
-  return (
-    <Cubiod
-      antialias
-      onSceneReady={cubiodReady}
-      // onRender={onRender}
-      id="my-canvas"
-    />
-  );
+  return <Cubiod antialias onSceneReady={cubiodReady} id="my-canvas" />;
 }
 
 export default Rendered;
