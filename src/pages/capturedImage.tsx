@@ -1,5 +1,6 @@
-import { RootState, useAppSelector } from '@/redux/store';
 import React from 'react';
+import { RootState, useAppSelector } from '@/redux/store';
+
 import NavigationButton from '../components/NavigationButton';
 
 function CapturedImage() {

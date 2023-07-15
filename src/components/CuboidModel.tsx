@@ -1,15 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { Engine, Scene } from '@babylonjs/core';
 
-const Cubiod = ({
-  antialias,
-  onSceneReady,
-  id,
-}: {
-  antialias: boolean;
-  onSceneReady: (scene: Scene) => void;
-  id: string;
-}) => {
+import { CubiodModelType } from '@/types';
+
+const Cubiod: FC<CubiodModelType> = ({ antialias, onSceneReady, id }) => {
   const reactCanvas = useRef(null);
   useEffect(() => {
     const canvas = reactCanvas.current;

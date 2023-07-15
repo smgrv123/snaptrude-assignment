@@ -7,7 +7,8 @@ import { toPng } from 'html-to-image';
 import { useAppDispatch } from '@/redux/store';
 import { setImageString } from '@/redux/imageSlice';
 
-import Geocoder from '../components/GeoCoderSearch';
+import { ViewPortTypes } from '@/types';
+import Geocoder from '../components/Geocoder';
 import NavigationButton from '../components/NavigationButton';
 
 function App() {
@@ -18,11 +19,11 @@ function App() {
 
   const dispatch = useAppDispatch();
 
-  const [viewport, setviewport] = useState<{
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  }>({ latitude: 0, longitude: 0, zoom: 3 });
+  const [viewport, setviewport] = useState<ViewPortTypes>({
+    latitude: 0,
+    longitude: 0,
+    zoom: 3,
+  });
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {

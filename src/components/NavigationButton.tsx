@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
 
-type NavigationButtonProps = {
-  buttonText: string;
-  hrefPathname: string;
-  onClick?: () => void;
-};
+import { NavigationButtonProps } from '@/types';
 
 const NavigationButton: FC<NavigationButtonProps> = ({
   buttonText,
