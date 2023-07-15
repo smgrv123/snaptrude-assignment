@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ArcRotateCamera,
   Vector3,
@@ -9,14 +9,22 @@ import {
   Scene,
   StandardMaterial,
 } from '@babylonjs/core';
+import { useRouter } from 'next/router';
 
 import { Cubiod } from '../components/CuboidModel';
 import { RootState, useAppSelector } from '@/redux/store';
+import NavigationButton from '@/components/NavigationButton';
 
 function Rendered() {
   const selector = useAppSelector(
     (state: RootState) => state.image.imageString
   );
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!selector) router.push('/');
+  }, []);
 
   let box: Mesh | undefined;
 
@@ -54,7 +62,16 @@ function Rendered() {
     box.position.z = 0;
   };
 
-  return <Cubiod antialias onSceneReady={cubiodReady} id="my-canvas" />;
+  return (
+    <>
+      <Cubiod antialias onSceneReady={cubiodReady} id="my-canvas" />
+      <NavigationButton
+        buttonText={'Want To Try Again!'}
+        hrefPathname={'/'}
+        extraStyles="absolute bottom-6 left-6"
+      />
+    </>
+  );
 }
 
 export default Rendered;
