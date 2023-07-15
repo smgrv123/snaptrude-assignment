@@ -22,7 +22,6 @@ function App() {
   const [viewport, setviewport] = useState<ViewPortTypes>({
     latitude: 0,
     longitude: 0,
-    zoom: 3,
   });
 
   useEffect(() => {
@@ -31,7 +30,6 @@ function App() {
         ...viewport,
         latitude: pos.coords.latitude,
         longitude: pos.coords.longitude,
-        zoom: 10,
       });
     });
   }, []);
@@ -51,6 +49,8 @@ function App() {
         mapStyle={mapStyle}
         mapboxAccessToken={apiKey}
         style={{ height: '50rem', borderRadius: '5px' }}
+        maxZoom={20}
+        minZoom={7}
       >
         <Marker
           draggable

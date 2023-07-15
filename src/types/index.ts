@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from 'react';
 type ViewPortTypes = {
   latitude: number;
   longitude: number;
-  zoom: number;
+  zoom?: number;
 };
 
 type CubiodModelType = {
