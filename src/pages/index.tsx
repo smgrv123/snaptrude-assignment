@@ -39,6 +39,7 @@ function App() {
     const imageString = await toPng(mapRef.current.getCanvas());
     setmapScreenShot(imageString);
     setTimeout(
+      // @ts-ignore
       () => scrollDownRef.current?.scrollIntoView({ behavior: 'smooth' }),
       50
     );
