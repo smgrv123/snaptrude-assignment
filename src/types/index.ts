@@ -20,7 +20,6 @@ type GeocoderType = {
 
 type NavigationButtonProps = {
   buttonText: string;
-  hrefPathname: string;
   onClick?: () => void;
   extraStyles?: string;
 };
