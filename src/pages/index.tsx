@@ -45,48 +45,46 @@ function App() {
     );
   };
 
-  const MapComponent = React.memo(
-    ({ viewport }: { viewport: ViewPortTypes }) => {
-      return (
-        <Map
-          ref={mapRef}
-          preserveDrawingBuffer={true}
+  const MapComponent = ({ viewport }: { viewport: ViewPortTypes }) => {
+    return (
+      <Map
+        ref={mapRef}
+        preserveDrawingBuffer={true}
+        {...viewport}
+        mapStyle={mapStyle}
+        mapboxAccessToken={apiKey}
+        style={{ height: '50rem', borderRadius: '5px' }}
+        maxZoom={20}
+        minZoom={7}
+      >
+        <Marker
+          draggable
+          onDragEnd={(e) =>
+            setviewport({
+              ...viewport,
+              longitude: e.lngLat.lng,
+              latitude: e.lngLat.lat,
+            })
+          }
           {...viewport}
-          mapStyle={mapStyle}
-          mapboxAccessToken={apiKey}
-          style={{ height: '50rem', borderRadius: '5px' }}
-          maxZoom={20}
-          minZoom={7}
-        >
-          <Marker
-            draggable
-            onDragEnd={(e) =>
-              setviewport({
-                ...viewport,
-                longitude: e.lngLat.lng,
-                latitude: e.lngLat.lat,
-              })
-            }
-            {...viewport}
-          />
-          <Geocoder setviewport={setviewport} viewport={viewport} />
-          <GeolocateControl
-            position="top-left"
-            onGeolocate={(e) =>
-              setviewport({
-                ...viewport,
-                longitude: e.coords.longitude,
-                latitude: e.coords.latitude,
-              })
-            }
-            showUserLocation
-            positionOptions={{ enableHighAccuracy: true }}
-            trackUserLocation
-          />
-        </Map>
-      );
-    }
-  );
+        />
+        <Geocoder setviewport={setviewport} viewport={viewport} />
+        <GeolocateControl
+          position="top-left"
+          onGeolocate={(e) =>
+            setviewport({
+              ...viewport,
+              longitude: e.coords.longitude,
+              latitude: e.coords.latitude,
+            })
+          }
+          showUserLocation
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation
+        />
+      </Map>
+    );
+  };
 
   return (
     <>
